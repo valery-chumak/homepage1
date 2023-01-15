@@ -18,7 +18,9 @@ body {
   --border-color: #ff9a0045;
   --text-decoration-color: #ff9a00;
 }
-
+ul {
+  list-style-type: none;
+}
 .container {
   margin: 0 auto;
   padding: 0 30px;
@@ -86,9 +88,23 @@ body {
   text-decoration-color: var(--text-decoration-color);
   text-decoration-line: underline;
 }
+@keyframes effect {
+  0% {
+    background: linear-gradient(var(--secondary-text-color), #6fe3ce);
+    -webkit-background-clip: text;
+  }
 
+  100% {
+    background: linear-gradient(
+      var(--text-decoration-color),
+      var(--primary-text-color)
+    );
+    -webkit-background-clip: text;
+  }
+}
 .contact-info__sub-header {
-  color: var(--secondary-text-color);
+  color: transparent;
+  animation: effect 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   margin-bottom: 30px;
 }
 
@@ -108,7 +124,10 @@ body {
   display: flex;
   justify-content: start;
 }
-
+.contact-info__item:hover > span {
+  color: var(--text-decoration-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .contact-info__item:not(:last-child) {
   margin-bottom: 20px;
 }
@@ -174,6 +193,16 @@ body {
 .skills__text {
   color: var(--secondary-text-color);
   text-align: center;
+}
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100px;
+  margin-left: 5%;
+}
+.skills__item {
+  color: var(--secondary-text-color);
 }
 /* Experience and additonal info styles */
 .experiences {
@@ -292,4 +321,32 @@ body {
 }
 .additional-info__certificates-item {
   color: var(--secondary-text-color);
+}
+.additional-info__hobbies-university {
+  display: flex;
+}
+.additional-info__hobbies-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.additional-info__hobbies-item:not(:last-child) {
+  margin-right: 15px;
+}
+.star-icon {
+  color: #ff9a00;
+  color: transparent;
+  animation: star 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes star {
+  0% {
+    color: #72c5b6;
+    font-size: 1em;
+    -webkit-background-clip: text;
+  }
+
+  100% {
+    color: gold;
+    font-size: 1.05em;
+    -webkit-background-clip: text;
+  }
 }
